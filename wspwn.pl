@@ -298,8 +298,8 @@ sub start_pwn
     my $nb_steps = int (($clients[1] - $clients[0]) / $inc);
     for ($clients_lvl = $clients[0]; $clients_lvl <= $clients[1]; $clients_lvl += $inc)
     {
-        print STDERR "(". ( int (int $clients_lvl/$inc)#100 /$nb_steps )."%) ";
-        $res = run_test ($clients_lvl , $req_p_c ? $clients_lvl# $nreq : $nreq );
+        print STDERR "(". ( int (int $clients_lvl/$inc) * 100 /$nb_steps )."%) ";
+        $res = run_test ($clients_lvl , $req_p_c ? $clients_lvl * $nreq : $nreq );
         if($pt) { save_line($res); }
         else { push (@results, $res); }
         
